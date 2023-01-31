@@ -1,0 +1,45 @@
+$backgroundMerah: pink;
+
+.main {
+  .colKiri {
+    background-image: url("/images/bg-login.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+
+    .overlay {
+      background-color: #5e50a1ad;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .content {
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      h1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 70px;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .colKanan {
+    padding: 50px;
+  }
+
+  .centerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}
