@@ -1,0 +1,57 @@
+.cardStyle {
+  border: none !important;
+  border-radius: 8px;
+}
+
+.profileImage {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  object-position: center;
+  margin-left: 5px;
+}
+
+.profileContent {
+  h2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    color: #1f2a36;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #9ea0a5;
+    margin-bottom: 0;
+  }
+}
+
+.skillBadge {
+  background: rgba(251, 176, 23, 0.6) !important;
+  border: 1px solid #fbb017;
+  border-radius: 4px;
+  color: #fff;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.profileBtn {
+  background: #5e50a1;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height, or 125% */
+
+  text-align: center;
+
+  padding: 10px 20px 10px 20px !important;
+  color: #ffffff;
+}
