@@ -4,6 +4,7 @@ import style from "../../../styles/pages/loginStyle.module.scss";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
+import Link from "next/link";
 
 function Recruiter() {
   const router = useRouter();
@@ -122,7 +123,7 @@ function Recruiter() {
 
                   <p className="text-center">
                     Anda belum punya akun?{" "}
-                    <a href="/auth/register/recruiter">Daftar disini</a>
+                    <Link href="/auth/register/recruiter">Daftar disini</Link>
                   </p>
                 </form>
               </div>

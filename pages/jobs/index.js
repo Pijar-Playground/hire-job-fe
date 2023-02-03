@@ -4,10 +4,14 @@ import React from "react";
 import style from "../../styles/pages/jobStyle.module.scss";
 import Head from "next/head";
 import JobItemList from "../../components/molecules/JobItemList";
-import {  getCookie } from "cookies-next";
+import { getCookie } from "cookies-next";
 
 function Index(props) {
-  const { jobList } = props;
+  const {
+    jobList: {
+      data: { rows, count },
+    },
+  } = props;
 
   return (
     <>
@@ -51,12 +55,21 @@ function Index(props) {
             </li>
           </ul>
         </div>
-        
+
         <div className="container py-5">
           <div class={`card border-0 shadow ${style.cardStyle}`}>
-            {jobList?.map((item, key) => (
+            {rows?.map((item, key) => (
               <React.Fragment key={key}>
-                <JobItemList item={item} />
+                <JobItemList
+                  item={{
+                    image: item?.["user.photo_profile"],
+                    name: item?.["user.fullname"],
+                    job: item?.job,
+                    location: item?.domicile,
+                    slills: item?.slills,
+                    slug: item?.id,
+                  }}
+                />
                 <hr />
               </React.Fragment>
             ))}
@@ -67,15 +80,11 @@ function Index(props) {
   );
 }
 
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps() {
   const jobList = await axios.get(
-    `${process.env.NEXT_PUBLIC_WEBSITE}/api/job-list`
+    `${process.env.NEXT_PUBLIC_API_URL}/v1/user/list?limit=10&page=1`
   );
   const convertData = jobList.data;
-
-  const token = getCookie("token", { req, res });
-
-  console.log(token);
 
   return {
     props: {
