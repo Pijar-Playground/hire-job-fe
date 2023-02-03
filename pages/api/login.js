@@ -5,7 +5,7 @@ export default function handler(req, res) {
   try {
     const { email, password } = req.body;
     axios
-      .post(`http://localhost:3200/v1/auth/login`, {
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/v1/auth/login`, {
         email,
         password,
       })
