@@ -22,3 +22,28 @@ a {
   background-color: $primary !important;
   border-color: $primary !important;
 }
+
+.mobile-view {
+  display: none;
+  visibility: hidden;
+  @media screen and (min-width: 0px) and (max-width: 799px) {
+    display: block;
+    visibility: inherit;
+  }
+}
+
+.desktop-view {
+  display: none;
+  visibility: hidden;
+  @media screen and (min-width: 800px) {
+    display: block;
+    visibility: inherit;
+  }
+}
+
+.pagination .active {
+  a {
+    background-color: $primary !important;
+    color: #fff !important;
+  }
+}

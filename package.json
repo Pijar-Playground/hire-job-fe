@@ -4,18 +4,28 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "axios": "^1.2.6",
     "bootstrap": "^5.2.3",
+    "cookie": "^0.5.0",
+    "cookies-js": "^1.2.3",
     "cookies-next": "^2.1.1",
     "next": "13.1.6",
+    "next-redux-cookie-wrapper": "^2.2.1",
     "react": "18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
+    "redux-persist-cookie-storage": "^1.0.0",
+    "redux-persist-transform-encrypt": "^4.0.0",
     "sass": "^1.57.1"
   },
   "devDependencies": {

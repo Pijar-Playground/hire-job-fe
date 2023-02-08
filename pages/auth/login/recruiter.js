@@ -5,17 +5,21 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { setCookie } from "cookies-next";
 import Link from "next/link";
+import * as auth from "../../../store/reducer/auth";
+import { useDispatch, useSelector } from "react-redux";
 
 function Recruiter() {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const store = useSelector((state) => state);
+
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-    let checkIsLogin =
-      localStorage.getItem("token") && localStorage.getItem("profile");
+    let checkIsLogin = store.auth.profile && store.auth.token;
 
     if (checkIsLogin) {
       router.replace("/");
@@ -35,9 +39,8 @@ function Recruiter() {
       setError(null);
 
       if (connect?.data?.data?.recruiter_id) {
-        localStorage.setItem("token", connect?.data?.token);
-        localStorage.setItem("profile", JSON.stringify(connect?.data?.data));
-
+        dispatch(auth.setToken(connect?.data?.token));
+        dispatch(auth.setProfile(connect?.data?.data));
         setCookie("token", connect?.data?.token);
       } else {
         setError("Can't login in this area");
